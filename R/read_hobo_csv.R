@@ -8,6 +8,8 @@
 #' @export
 #' @examples
 #' test <- read_hobo_csv(system.file("extdata", "test.csv", package = "r4streams"))
+#' # No csv file specified; user asked to browse
+#' test <- read_hobo_csv()
 
 read_hobo_csv <- function (hobo_csv = NULL) {
 
