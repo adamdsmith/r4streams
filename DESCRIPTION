@@ -1,0 +1,32 @@
+Package: r4streams
+Type: Package
+Title: Processing and Visualization of U.S. Fish & Wildlife Southeast Region (R4) Stream Temperature Data
+Version: 0.1
+Date: 2017-07-11
+Authors@R: c(person("Adam", "Smith", email = "adam_d_smith@fws.gov", role = c("aut", "cre")),
+             person("Grant", "Graves", role = c("ctb"), comment = "Primary package user; provides significant feedback for improvements"))
+Maintainer: Adam D. Smith <adam_d_smith@fws.gov>
+Description: Functions to process raw stream logger data and produce interactive 
+    visualizations for QA/QC and interpretation.
+Depends:
+    R (>= 3.3)
+Imports:
+    dplyr (>= 0.5.0),
+    dygraphs (>= 1.1.1),
+    lubridate (>= 1.6),
+    stringr (>= 1.2),
+    zoo (>= 1.8),
+    utils
+Suggests:
+    htmlwidgets (>= 0.8)
+License: CC0
+Copyright: This software is in the public domain because it contains materials
+    that originally came from the United States Fish & Wildlife Service, an agency
+    of the United States Department of Interior. For more information, see the
+    official US DOI copyright policy at https://www.doi.gov/copyright.  Note that the
+    use of the USFWS logo is restricted to official publications:
+    https://www.fws.gov/help/policies.html
+LazyData: TRUE
+URL: https://github.com/adamdsmith/r4streams
+BugReports: https://github.com/adamdsmith/r4streams/issues
+RoxygenNote: 6.0.1
