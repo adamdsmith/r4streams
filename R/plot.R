@@ -5,7 +5,7 @@
 #'  data logger location. This must be specified. See examples.
 #' @param flag number of daily measurements *below which* temperature calculations are
 #'  flagged to indicate a potentially inadequate number of observations. Default (36) flags
-#'  daily values based on 75% or less of expected observations (i.e., 48 30-min observations
+#'  daily values based on 75\% or less of expected observations (i.e., 48 30-min observations
 #'  per day). Flagged days are indicated by a red bar along the x-axis.
 #' @param save logical (default `FALSE`) indicating whether to save the time series plot
 #'  to a standalone `html` file named based on `stn` argument. The `html` is saved to
