@@ -1,6 +1,6 @@
 #' Create an interactive dygraph/plot of processed HOBO logger data
 #'
-#' @param hobo hobo data.frame created by \code{\link{read_hobo_csv}}
+#' @param x hobo data.frame created by \code{\link{read_hobo_csv}}
 #' @param stn character string indicating a relatively short, but descriptive name for the
 #'  data logger location. This must be specified. See examples.
 #' @param flag number of daily measurements *below which* temperature calculations are
@@ -14,6 +14,7 @@
 #'  file if `save = TRUE`. Defaults to current working directory.
 #' @param verbose logical (default `TRUE`) indicating whether to suppress messaging
 #'  indicating where output `html` file was saved, if `save = TRUE`#'
+#' @param ... further arguments to plot (ignored)
 #' @return a \code{\link[dygraphs]{dygraph}} interactive time series plot of daily average,
 #'  minimum, and maximum stream temperatures
 #' @export
@@ -26,18 +27,18 @@
 #'      out_dir = "./test_output")
 #' }
 
-plot.hobo <- function(hobo, stn = NULL, flag = 36, save = FALSE,
-                      out_dir = NULL, verbose = TRUE) {
+plot.hobo <- function(x, stn = NULL, flag = 36, save = FALSE,
+                      out_dir = NULL, verbose = TRUE, ...) {
 
   if (is.null(stn)) stop("Please provide a string for the `stn` argument ",
                          "indicating the logger location:\n",
                          "This will be used in the plot title and output filename.\n",
                          "For example: 'Reelfoot Lake NWR' or 'Noxubee NWR'.")
 
-  if (!inherits(hobo, "hobo"))
+  if (!inherits(x, "hobo"))
     stop("Input must be created by `read_csv_hobo`.  See `?read_csv_hobo`.")
 
-  dat <- hobo %>%
+  dat <- x %>%
     mutate(date = as.Date(date, format = "%m/%d/%Y")) %>%
     group_by(date) %>%
     summarize(n = n(),

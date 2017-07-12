@@ -4,11 +4,11 @@
 \alias{plot.hobo}
 \title{Create an interactive dygraph/plot of processed HOBO logger data}
 \usage{
-\method{plot}{hobo}(hobo, stn = NULL, flag = 36, save = FALSE,
-  out_dir = NULL, verbose = TRUE)
+\method{plot}{hobo}(x, stn = NULL, flag = 36, save = FALSE,
+  out_dir = NULL, verbose = TRUE, ...)
 }
 \arguments{
-\item{hobo}{hobo data.frame created by \code{\link{read_hobo_csv}}}
+\item{x}{hobo data.frame created by \code{\link{read_hobo_csv}}}
 
 \item{stn}{character string indicating a relatively short, but descriptive name for the
 data logger location. This must be specified. See examples.}
@@ -27,6 +27,8 @@ file if `save = TRUE`. Defaults to current working directory.}
 
 \item{verbose}{logical (default `TRUE`) indicating whether to suppress messaging
 indicating where output `html` file was saved, if `save = TRUE`#'}
+
+\item{...}{further arguments to plot (ignored)}
 }
 \value{
 a \code{\link[dygraphs]{dygraph}} interactive time series plot of daily average,
