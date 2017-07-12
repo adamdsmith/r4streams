@@ -19,6 +19,8 @@ Read HOBO logger csv files exported from HOBOware Pro
 }
 \examples{
 test <- read_hobo_csv(system.file("extdata", "test.csv", package = "r4streams"))
+\dontrun{
 # No csv file specified; user asked to browse
 test <- read_hobo_csv()
+}
 }
