@@ -1,5 +1,3 @@
-Untitled
-================
 
 [![Build Status](https://travis-ci.org/adamdsmith/r4streams.png)](https://travis-ci.org/adamdsmith/r4streams)
 
@@ -56,9 +54,9 @@ test <- read_hobo_csv()
 
 The resulting object (`test`, in this case) is a custom `hobo` class object (and a `data.frame`) with an associated `plot` method that produces an interactive dygraph of daily average, minimum, and maximum stream temperatures using the [dygraphs JavaScript library](http://dygraphs.com/). Several arguments to the `plot` function provide some flexibility:
 
--   `hobo`: the `hobo` object created by `read_hobo_csv`
--   `stn`: a required string indicating a descriptive name for the data logger location used in the plot title and, if the plot is saved, the filename
--   `flag`: a threshold number of observations *below which* daily average temperatures are flagged to indicate a potentially inadequate number of observations. Default (36) flags daily values based on less than 75% of the expected daily observations (i.e., 48 30-min observations). Flagged days are indicated by a red bar along the x-axis (see example below).
+-   `x`: the `hobo` object created by `read_hobo_csv`
+-   `stn`: a **required** string indicating a descriptive name for the data logger location used in the plot title and, if the plot is saved, the filename
+-   `flag`: a threshold number of observations *below which* daily average temperatures are flagged to indicate a potentially inadequate number of observations. Default (36) flags daily values based on less than 75% of the expected daily observations (i.e., 48 30-min observations). Flagged days are indicated by a red bar along the x-axis (see figure below).
 -   `save`: option to save interactive plot as a standalone `html` file (use `save = TRUE`)
 -   `out_dir`: if saving to `html`, option to specify the output directory for the `html` file. By default, it saves it in the current working directory (which you can find by running `getwd()`)
 -   `verbose`: option to turn off messages about where `html` file was saved, if requested (use `verbose = FALSE` to turn off).
