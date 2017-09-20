@@ -7,15 +7,18 @@
 read_hobo_csv(hobo_csv = NULL)
 }
 \arguments{
-\item{hobo_csv}{character path to input `csv` file. If not specified, user is prompted to
-browse for the input `csv` file.}
+\item{hobo_csv}{character path to input csv file. If not specified, user is prompted to
+browse for the input csv file.}
 }
 \value{
 a data.frame of logger serial #, date/time of logged temperature, and temperature
  (Fahrenheit)
 }
 \description{
-Read HOBO logger csv files exported from HOBOware Pro
+This function concerns itself only with the first three columns of data in the HOBOware Pro
+generated csv file, which in our particular use case includes only the sequence of
+temperature measurement, the timestamp of the measurement, and the measurement itself.
+Any other attached devices are ignored.
 }
 \examples{
 test <- read_hobo_csv(system.file("extdata", "test.csv", package = "r4streams"))

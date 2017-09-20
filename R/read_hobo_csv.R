@@ -1,7 +1,12 @@
 #' Read HOBO logger csv files exported from HOBOware Pro
 #'
-#' @param hobo_csv character path to input `csv` file. If not specified, user is prompted to
-#'  browse for the input `csv` file.
+#' This function concerns itself only with the first three columns of data in the HOBOware Pro
+#' generated csv file, which in our particular use case includes only the sequence of
+#' temperature measurement, the timestamp of the measurement, and the measurement itself.
+#' Any other attached devices are ignored.
+#'
+#' @param hobo_csv character path to input csv file. If not specified, user is prompted to
+#'  browse for the input csv file.
 #'
 #' @return a data.frame of logger serial #, date/time of logged temperature, and temperature
 #'  (Fahrenheit)
@@ -31,7 +36,7 @@ read_hobo_csv <- function (hobo_csv = NULL) {
   close(con)
 
   #Split second header line containing column names, logger serial number, and time zone
-  header_bits <- unlist(strsplit(header[2], '",\\"'))
+  header_bits <- unlist(strsplit(header[2], '",\\"'))[1:3]
 
   # Extract serial numbers
   SNs <-  stringr::str_extract(header_bits, '(?<=S\\/N:\\s)[0-9]+')
